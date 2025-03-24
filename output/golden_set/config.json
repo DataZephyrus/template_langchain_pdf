@@ -1,0 +1,12 @@
+{
+    "outputColumnName": "output",
+    "inputVariableNames": [
+        "file_dir"
+    ],
+    "metadata": {
+        "output_timestamp": 1742830213.389539
+    },
+    "latencyColumnName": "latency",
+    "costColumnName": "cost",
+    "numOfTokenColumnName": "tokens"
+}

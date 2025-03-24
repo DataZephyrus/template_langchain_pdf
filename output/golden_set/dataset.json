@@ -1,0 +1,702 @@
+[
+    {
+        "file_dir":".\/data\/cv_1.pdf",
+        "output":"{\"name\":\"John Smith\",\"email\":\"john.smith@example.com\",\"github_profile_url\":null,\"linkedin_profile_url\":\"linkedin.com\/in\/johnsmith\"}",
+        "steps":[
+            {
+                "name":"extract",
+                "id":"0004cb08-2b29-4c9b-bab2-60a3fdd9c3cf",
+                "type":"user_call",
+                "inputs":{
+                    "file_dir":".\/data\/cv_1.pdf"
+                },
+                "output":"name='John Smith' email='john.smith@example.com' github_profile_url=None linkedin_profile_url='linkedin.com\/in\/johnsmith'",
+                "groundTruth":null,
+                "metadata":{
+
+                },
+                "steps":[
+                    {
+                        "name":"read_cv",
+                        "id":"4b4954ce-f351-4a3a-acb4-9de304149103",
+                        "type":"user_call",
+                        "inputs":{
+                            "file_dir":".\/data\/cv_1.pdf"
+                        },
+                        "output":"John Smith\n456 Elm Street\nSan Francisco, CA 94102\njohn.smith@example.com\n(415) 987-6543\nLinkedIn: linkedin.com\/in\/johnsmith\nProfile\nExperienced data scientist with a strong background in statistical analysis\nand machine learning. Adept at extracting insights from complex datasets to\ndrive business decisions.\nProfessional Experience\nData Scientist\nDataWorks Inc., San Francisco, CA\nAugust 2018 \u2013 Present\n- Developed predictive models to forecast customer behavior and improve\nretention rates. - Conducted A\/B testing and analyzed results to optimize\nmarketing campaigns. - Worked closely with stakeholders to identify key\nbusiness metrics and create custom dashboards.\nData Analyst\nAnalytics Solutions, San Francisco, CA\nJune 2015 \u2013 July 2018\n- Analyzed large datasets using Python and R to uncover trends and\npatterns. - Created detailed reports and visualizations to present findings to\nclients and management. - Automated data collection and processing tasks,\nreducing manual work by 40%.\nEducation\nMaster of Science in Data Science\nUniversity of California, Berkeley, CA\nGraduated May 2015\nBachelor of Arts in Mathematics\nStanford University, Stanford, CA\nGraduated May 2013\nTechnical Skills\nPython, R, SQL\u2022 Machine Learning, Data Mining\nTableau, Power BI\nStatistical Analysis\nPublications\n\u201cImproving Customer Retention with Machine Learning,\u201d Journal of\nData Science, 2021.\n\u201cAnalyzing Social Media Trends with Python,\u201d Data Science Quarterly,\n2019.\nInterests\nHiking, Photography, Chess\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":44.0201759338,
+                        "startTime":1742830206.8831319809,
+                        "endTime":1742830206.9271521568
+                    },
+                    {
+                        "name":"OpenAI Chat Completion",
+                        "id":"0a5c0995-1dc9-4c1d-a7bb-34155455906c",
+                        "type":"chat_completion",
+                        "inputs":{
+                            "prompt":[
+                                {
+                                    "role":"user",
+                                    "content":"John Smith\n456 Elm Street\nSan Francisco, CA 94102\njohn.smith@example.com\n(415) 987-6543\nLinkedIn: linkedin.com\/in\/johnsmith\nProfile\nExperienced data scientist with a strong background in statistical analysis\nand machine learning. Adept at extracting insights from complex datasets to\ndrive business decisions.\nProfessional Experience\nData Scientist\nDataWorks Inc., San Francisco, CA\nAugust 2018 \u2013 Present\n- Developed predictive models to forecast customer behavior and improve\nretention rates. - Conducted A\/B testing and analyzed results to optimize\nmarketing campaigns. - Worked closely with stakeholders to identify key\nbusiness metrics and create custom dashboards.\nData Analyst\nAnalytics Solutions, San Francisco, CA\nJune 2015 \u2013 July 2018\n- Analyzed large datasets using Python and R to uncover trends and\npatterns. - Created detailed reports and visualizations to present findings to\nclients and management. - Automated data collection and processing tasks,\nreducing manual work by 40%.\nEducation\nMaster of Science in Data Science\nUniversity of California, Berkeley, CA\nGraduated May 2015\nBachelor of Arts in Mathematics\nStanford University, Stanford, CA\nGraduated May 2013\nTechnical Skills\nPython, R, SQL\u2022 Machine Learning, Data Mining\nTableau, Power BI\nStatistical Analysis\nPublications\n\u201cImproving Customer Retention with Machine Learning,\u201d Journal of\nData Science, 2021.\n\u201cAnalyzing Social Media Trends with Python,\u201d Data Science Quarterly,\n2019.\nInterests\nHiking, Photography, Chess\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022"
+                                }
+                            ]
+                        },
+                        "output":"",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":1745.4750537872,
+                        "startTime":1742830206.9307849407,
+                        "endTime":1742830208.6762599945,
+                        "provider":"OpenAI",
+                        "promptTokens":459,
+                        "completionTokens":32,
+                        "tokens":491,
+                        "cost":null,
+                        "model":"gpt-3.5-turbo",
+                        "modelParameters":{
+                            "model":"gpt-3.5-turbo",
+                            "model_name":"gpt-3.5-turbo",
+                            "stream":false,
+                            "stop":null,
+                            "tools":[
+                                {
+                                    "type":"function",
+                                    "function":{
+                                        "name":"CVStructuredData",
+                                        "description":"",
+                                        "parameters":{
+                                            "properties":{
+                                                "name":{
+                                                    "description":"Candidate's full name",
+                                                    "type":"string"
+                                                },
+                                                "email":{
+                                                    "description":"Candidate's email address",
+                                                    "type":"string"
+                                                },
+                                                "github_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's GitHub profile. If not available, should be None."
+                                                },
+                                                "linkedin_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's LinkedIn profile. If not available, should be None."
+                                                }
+                                            },
+                                            "required":[
+                                                "name",
+                                                "email",
+                                                "github_profile_url",
+                                                "linkedin_profile_url"
+                                            ],
+                                            "type":"object"
+                                        }
+                                    }
+                                }
+                            ],
+                            "parallel_tool_calls":false,
+                            "tool_choice":{
+                                "type":"function",
+                                "function":{
+                                    "name":"CVStructuredData"
+                                }
+                            }
+                        },
+                        "rawOutput":null
+                    }
+                ],
+                "latency":1793.8721179962,
+                "startTime":1742830206.8831019402,
+                "endTime":1742830208.6769740582
+            }
+        ],
+        "latency":1793.8721179962,
+        "cost":0.0,
+        "tokens":0.0
+    },
+    {
+        "file_dir":".\/data\/cv_2.pdf",
+        "output":"{\"name\":\"Jane Doe\",\"email\":\"jane.doe@example.com\",\"github_profile_url\":\"github.com\/janedoe\",\"linkedin_profile_url\":\"linkedin.com\/in\/janedoe\"}",
+        "steps":[
+            {
+                "name":"extract",
+                "id":"f9e62633-85e9-4e62-b646-d975a8f087ae",
+                "type":"user_call",
+                "inputs":{
+                    "file_dir":".\/data\/cv_2.pdf"
+                },
+                "output":"name='Jane Doe' email='jane.doe@example.com' github_profile_url='github.com\/janedoe' linkedin_profile_url='linkedin.com\/in\/janedoe'",
+                "groundTruth":null,
+                "metadata":{
+
+                },
+                "steps":[
+                    {
+                        "name":"read_cv",
+                        "id":"e1d6e706-e80f-4322-80cd-88cdca7cd7c8",
+                        "type":"user_call",
+                        "inputs":{
+                            "file_dir":".\/data\/cv_2.pdf"
+                        },
+                        "output":"Jane Doe\nJane Doe\n123 Main Street, Apt 4B\nNew York, NY 10001\njane.doe@example.com\n(555) 123-4567\nLinkedIn: linkedin.com\/in\/janedoe\nGitHub: github.com\/janedoe\nObjective\nObjective\nPassionate software engineer with 5 years of experience in developing scalable web applications. Seeking a challenging role to leverage my expertise in front-end and\nback-end technologies.\nExperience\nExperience\nSoftware Engineer\nSoftware Engineer\nTech Solutions Inc., New York, NY\nTech Solutions Inc., New York, NY\nJune 2019 \u2013 Present\nDeveloped and maintained web applications using JavaScript, React, and Node.js.\nCollaborated with cross-functional teams to define project requirements and deliver solutions on time.\nImproved application performance by optimizing code and database queries, resulting in a 30% reduction in load times.\nJunior Developer\nJunior Developer\nWebify Corp., New York, NY\nWebify Corp., New York, NY\nJuly 2016 \u2013 May 2019\nAssisted in developing responsive websites using HTML, CSS, and JavaScript.\nParticipated in code reviews and contributed to the improvement of coding standards and practices.\nImplemented new features based on client requests, leading to a 15% increase in customer satisfaction.\nEducation\nEducation\nBachelor of Science in Computer Science\nBachelor of Science in Computer Science\nNew York University, New York, NY\nGraduated May 2016\nSkills\nSkills\nJavaScript, React, Node.js, Python\nHTML, CSS, Bootstrap\nGit, Docker, Jenkins\nAgile methodologies\nCertifications\nCertifications\nCertified JavaScript Developer (2020)\nAWS Certified Solutions Architect (2021)\nReferences\nReferences\nAvailable upon request.",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":79.7247886658,
+                        "startTime":1742830208.6810700893,
+                        "endTime":1742830208.760794878
+                    },
+                    {
+                        "name":"OpenAI Chat Completion",
+                        "id":"762ba506-f86a-4804-902e-2dfea94f455b",
+                        "type":"chat_completion",
+                        "inputs":{
+                            "prompt":[
+                                {
+                                    "role":"user",
+                                    "content":"Jane Doe\nJane Doe\n123 Main Street, Apt 4B\nNew York, NY 10001\njane.doe@example.com\n(555) 123-4567\nLinkedIn: linkedin.com\/in\/janedoe\nGitHub: github.com\/janedoe\nObjective\nObjective\nPassionate software engineer with 5 years of experience in developing scalable web applications. Seeking a challenging role to leverage my expertise in front-end and\nback-end technologies.\nExperience\nExperience\nSoftware Engineer\nSoftware Engineer\nTech Solutions Inc., New York, NY\nTech Solutions Inc., New York, NY\nJune 2019 \u2013 Present\nDeveloped and maintained web applications using JavaScript, React, and Node.js.\nCollaborated with cross-functional teams to define project requirements and deliver solutions on time.\nImproved application performance by optimizing code and database queries, resulting in a 30% reduction in load times.\nJunior Developer\nJunior Developer\nWebify Corp., New York, NY\nWebify Corp., New York, NY\nJuly 2016 \u2013 May 2019\nAssisted in developing responsive websites using HTML, CSS, and JavaScript.\nParticipated in code reviews and contributed to the improvement of coding standards and practices.\nImplemented new features based on client requests, leading to a 15% increase in customer satisfaction.\nEducation\nEducation\nBachelor of Science in Computer Science\nBachelor of Science in Computer Science\nNew York University, New York, NY\nGraduated May 2016\nSkills\nSkills\nJavaScript, React, Node.js, Python\nHTML, CSS, Bootstrap\nGit, Docker, Jenkins\nAgile methodologies\nCertifications\nCertifications\nCertified JavaScript Developer (2020)\nAWS Certified Solutions Architect (2021)\nReferences\nReferences\nAvailable upon request."
+                                }
+                            ]
+                        },
+                        "output":"",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":952.9111385345,
+                        "startTime":1742830208.7614929676,
+                        "endTime":1742830209.7144041061,
+                        "provider":"OpenAI",
+                        "promptTokens":476,
+                        "completionTokens":37,
+                        "tokens":513,
+                        "cost":null,
+                        "model":"gpt-3.5-turbo",
+                        "modelParameters":{
+                            "model":"gpt-3.5-turbo",
+                            "model_name":"gpt-3.5-turbo",
+                            "stream":false,
+                            "stop":null,
+                            "tools":[
+                                {
+                                    "type":"function",
+                                    "function":{
+                                        "name":"CVStructuredData",
+                                        "description":"",
+                                        "parameters":{
+                                            "properties":{
+                                                "name":{
+                                                    "description":"Candidate's full name",
+                                                    "type":"string"
+                                                },
+                                                "email":{
+                                                    "description":"Candidate's email address",
+                                                    "type":"string"
+                                                },
+                                                "github_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's GitHub profile. If not available, should be None."
+                                                },
+                                                "linkedin_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's LinkedIn profile. If not available, should be None."
+                                                }
+                                            },
+                                            "required":[
+                                                "name",
+                                                "email",
+                                                "github_profile_url",
+                                                "linkedin_profile_url"
+                                            ],
+                                            "type":"object"
+                                        }
+                                    }
+                                }
+                            ],
+                            "parallel_tool_calls":false,
+                            "tool_choice":{
+                                "type":"function",
+                                "function":{
+                                    "name":"CVStructuredData"
+                                }
+                            }
+                        },
+                        "rawOutput":null
+                    }
+                ],
+                "latency":1034.1939926147,
+                "startTime":1742830208.6810460091,
+                "endTime":1742830209.7152400017
+            }
+        ],
+        "latency":1034.1939926147,
+        "cost":0.0,
+        "tokens":0.0
+    },
+    {
+        "file_dir":".\/data\/cv_3.pdf",
+        "output":"{\"name\":\"Emily Davis\",\"email\":\"emily.davis@example.com\",\"github_profile_url\":\"github.com\/emilydavis\",\"linkedin_profile_url\":null}",
+        "steps":[
+            {
+                "name":"extract",
+                "id":"433dccff-adc9-4210-bacc-df293a35dca9",
+                "type":"user_call",
+                "inputs":{
+                    "file_dir":".\/data\/cv_3.pdf"
+                },
+                "output":"name='Emily Davis' email='emily.davis@example.com' github_profile_url='github.com\/emilydavis' linkedin_profile_url=None",
+                "groundTruth":null,
+                "metadata":{
+
+                },
+                "steps":[
+                    {
+                        "name":"read_cv",
+                        "id":"f6ce6511-5b78-48f1-b995-e76b7ddc52b7",
+                        "type":"user_call",
+                        "inputs":{
+                            "file_dir":".\/data\/cv_3.pdf"
+                        },
+                        "output":"Emily Davis\n789 Oak Avenue\nLos Angeles, CA 90001\nemily.davis@example.com\n(323) 456-7890\nGitHub: github.com\/emilydavis\nObjective\nTo obtain a challenging position as a UX\/UI Designer where I can apply my\nskills in user-centered design and improve user experiences across digital\nplatforms.\nWork Experience\nUX\/UI Designer\nCreative Minds Studio, Los Angeles, CA\nMay 2017 \u2013 Present\n- Designed intuitive user interfaces for web and mobile applications. -\nConducted user research and usability testing to gather feedback and\niterate on designs. - Collaborated with developers to ensure design\nfeasibility and alignment with technical constraints.\nGraphic Designer\nVisual Impact Design, Los Angeles, CA\nJune 2014 \u2013 April 2017\n- Created visual assets for marketing campaigns, including banners,\nbrochures, and social media graphics. - Developed brand guidelines and\nensured consistency across all visual materials. - Assisted in the redesign of\nthe company website, leading to a 25% increase in user engagement.\nEducation\nBachelor of Fine Arts in Graphic Design\nUniversity of Southern California, Los Angeles, CA\nGraduated May 2014\nSkills\nAdobe Creative Suite (Photoshop, Illustrator, XD)\nSketch, Figma\nHTML, CSS\nWireframing, Prototyping\u2022 \n\u2022 \n\u2022 \n\u2022 Awards\nBest UX Design, LA Web Awards, 2020\nTop 10 Graphic Designers to Watch, Design Magazine, 2018\nVolunteer Work\nUX Mentor, Code for America, 2019 \u2013 Present\nGraphic Design Volunteer, LA Animal Shelter, 2017 \u2013 2019\u2022 \n\u2022 \n\u2022 \n\u2022",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":16.7489051819,
+                        "startTime":1742830209.7163250446,
+                        "endTime":1742830209.7330739498
+                    },
+                    {
+                        "name":"OpenAI Chat Completion",
+                        "id":"dae297a9-c4c6-43a0-8c5c-e6e86a077b94",
+                        "type":"chat_completion",
+                        "inputs":{
+                            "prompt":[
+                                {
+                                    "role":"user",
+                                    "content":"Emily Davis\n789 Oak Avenue\nLos Angeles, CA 90001\nemily.davis@example.com\n(323) 456-7890\nGitHub: github.com\/emilydavis\nObjective\nTo obtain a challenging position as a UX\/UI Designer where I can apply my\nskills in user-centered design and improve user experiences across digital\nplatforms.\nWork Experience\nUX\/UI Designer\nCreative Minds Studio, Los Angeles, CA\nMay 2017 \u2013 Present\n- Designed intuitive user interfaces for web and mobile applications. -\nConducted user research and usability testing to gather feedback and\niterate on designs. - Collaborated with developers to ensure design\nfeasibility and alignment with technical constraints.\nGraphic Designer\nVisual Impact Design, Los Angeles, CA\nJune 2014 \u2013 April 2017\n- Created visual assets for marketing campaigns, including banners,\nbrochures, and social media graphics. - Developed brand guidelines and\nensured consistency across all visual materials. - Assisted in the redesign of\nthe company website, leading to a 25% increase in user engagement.\nEducation\nBachelor of Fine Arts in Graphic Design\nUniversity of Southern California, Los Angeles, CA\nGraduated May 2014\nSkills\nAdobe Creative Suite (Photoshop, Illustrator, XD)\nSketch, Figma\nHTML, CSS\nWireframing, Prototyping\u2022 \n\u2022 \n\u2022 \n\u2022 Awards\nBest UX Design, LA Web Awards, 2020\nTop 10 Graphic Designers to Watch, Design Magazine, 2018\nVolunteer Work\nUX Mentor, Code for America, 2019 \u2013 Present\nGraphic Design Volunteer, LA Animal Shelter, 2017 \u2013 2019\u2022 \n\u2022 \n\u2022 \n\u2022"
+                                }
+                            ]
+                        },
+                        "output":"",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":890.4139995575,
+                        "startTime":1742830209.7339580059,
+                        "endTime":1742830210.6243720055,
+                        "provider":"OpenAI",
+                        "promptTokens":468,
+                        "completionTokens":33,
+                        "tokens":501,
+                        "cost":null,
+                        "model":"gpt-3.5-turbo",
+                        "modelParameters":{
+                            "model":"gpt-3.5-turbo",
+                            "model_name":"gpt-3.5-turbo",
+                            "stream":false,
+                            "stop":null,
+                            "tools":[
+                                {
+                                    "type":"function",
+                                    "function":{
+                                        "name":"CVStructuredData",
+                                        "description":"",
+                                        "parameters":{
+                                            "properties":{
+                                                "name":{
+                                                    "description":"Candidate's full name",
+                                                    "type":"string"
+                                                },
+                                                "email":{
+                                                    "description":"Candidate's email address",
+                                                    "type":"string"
+                                                },
+                                                "github_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's GitHub profile. If not available, should be None."
+                                                },
+                                                "linkedin_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's LinkedIn profile. If not available, should be None."
+                                                }
+                                            },
+                                            "required":[
+                                                "name",
+                                                "email",
+                                                "github_profile_url",
+                                                "linkedin_profile_url"
+                                            ],
+                                            "type":"object"
+                                        }
+                                    }
+                                }
+                            ],
+                            "parallel_tool_calls":false,
+                            "tool_choice":{
+                                "type":"function",
+                                "function":{
+                                    "name":"CVStructuredData"
+                                }
+                            }
+                        },
+                        "rawOutput":null
+                    }
+                ],
+                "latency":908.919095993,
+                "startTime":1742830209.7162828445,
+                "endTime":1742830210.6252019405
+            }
+        ],
+        "latency":908.919095993,
+        "cost":0.0,
+        "tokens":0.0
+    },
+    {
+        "file_dir":".\/data\/cv_4.pdf",
+        "output":"{\"name\":\"Michael Brown\",\"email\":\"michael.brown@example.com\",\"github_profile_url\":\"github.com\/michaelbrown\",\"linkedin_profile_url\":\"linkedin.com\/in\/michaelbrown\"}",
+        "steps":[
+            {
+                "name":"extract",
+                "id":"b8da018d-74e8-4c62-8f26-a286fda67771",
+                "type":"user_call",
+                "inputs":{
+                    "file_dir":".\/data\/cv_4.pdf"
+                },
+                "output":"name='Michael Brown' email='michael.brown@example.com' github_profile_url='github.com\/michaelbrown' linkedin_profile_url='linkedin.com\/in\/michaelbrown'",
+                "groundTruth":null,
+                "metadata":{
+
+                },
+                "steps":[
+                    {
+                        "name":"read_cv",
+                        "id":"83a49ed9-d057-45a6-9222-b60267135f4a",
+                        "type":"user_call",
+                        "inputs":{
+                            "file_dir":".\/data\/cv_4.pdf"
+                        },
+                        "output":"Michael Brown\n321 Pine Street\nChicago, IL 60601\nmichael.brown@example.com\n(312) 987-6543\nLinkedIn: linkedin.com\/in\/michaelbrown\nGitHub: github.com\/michaelbrown\nSummary\nFull-stack developer with over 6 years of experience building robust web\napplications. Proficient in both front-end and back-end technologies, with a\nstrong focus on delivering high-quality code.\nExperience\nSenior Full-Stack Developer\nInnovative Tech Inc., Chicago, IL\nMarch 2020 \u2013 Present\n- Lead a team of developers in creating scalable web applications using\nReact and Node.js. - Architected and implemented RESTful APIs, integrating\nwith third-party services and databases. - Mentored junior developers and\nconducted code reviews to maintain coding standards.\nFull-Stack Developer\nNextGen Solutions, Chicago, IL\nJanuary 2016 \u2013 February 2020\n- Developed and maintained web applications using Angular and Express.js. -\nDesigned and optimized SQL and NoSQL databases to improve performance\nand reliability. - Collaborated with designers to create responsive and user-\nfriendly interfaces.\nEducation\nBachelor of Science in Information Technology\nUniversity of Illinois, Chicago, IL\nGraduated May 2015\nSkills\nReact, Angular, Vue.js\nNode.js, Express.js\nSQL, MongoDB\u2022 \n\u2022 \n\u2022 Docker, Kubernetes\nAWS, Azure\nProjects\nE-commerce Platform:  Developed a full-stack e-commerce application\nwith a microservices architecture.\nReal-Time Chat App:  Created a real-time chat application using\nWebSockets and Node.js.\nCertifications\nCertified Scrum Master (CSM), 2021\nAWS Certified Developer \u2013 Associate, 2020\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":18.6729431152,
+                        "startTime":1742830210.6261730194,
+                        "endTime":1742830210.6448459625
+                    },
+                    {
+                        "name":"OpenAI Chat Completion",
+                        "id":"c911b630-95f1-495a-9699-36ee66965053",
+                        "type":"chat_completion",
+                        "inputs":{
+                            "prompt":[
+                                {
+                                    "role":"user",
+                                    "content":"Michael Brown\n321 Pine Street\nChicago, IL 60601\nmichael.brown@example.com\n(312) 987-6543\nLinkedIn: linkedin.com\/in\/michaelbrown\nGitHub: github.com\/michaelbrown\nSummary\nFull-stack developer with over 6 years of experience building robust web\napplications. Proficient in both front-end and back-end technologies, with a\nstrong focus on delivering high-quality code.\nExperience\nSenior Full-Stack Developer\nInnovative Tech Inc., Chicago, IL\nMarch 2020 \u2013 Present\n- Lead a team of developers in creating scalable web applications using\nReact and Node.js. - Architected and implemented RESTful APIs, integrating\nwith third-party services and databases. - Mentored junior developers and\nconducted code reviews to maintain coding standards.\nFull-Stack Developer\nNextGen Solutions, Chicago, IL\nJanuary 2016 \u2013 February 2020\n- Developed and maintained web applications using Angular and Express.js. -\nDesigned and optimized SQL and NoSQL databases to improve performance\nand reliability. - Collaborated with designers to create responsive and user-\nfriendly interfaces.\nEducation\nBachelor of Science in Information Technology\nUniversity of Illinois, Chicago, IL\nGraduated May 2015\nSkills\nReact, Angular, Vue.js\nNode.js, Express.js\nSQL, MongoDB\u2022 \n\u2022 \n\u2022 Docker, Kubernetes\nAWS, Azure\nProjects\nE-commerce Platform:  Developed a full-stack e-commerce application\nwith a microservices architecture.\nReal-Time Chat App:  Created a real-time chat application using\nWebSockets and Node.js.\nCertifications\nCertified Scrum Master (CSM), 2021\nAWS Certified Developer \u2013 Associate, 2020\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022 \n\u2022"
+                                }
+                            ]
+                        },
+                        "output":"",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":1897.5040912628,
+                        "startTime":1742830210.64585495,
+                        "endTime":1742830212.5433590412,
+                        "provider":"OpenAI",
+                        "promptTokens":481,
+                        "completionTokens":37,
+                        "tokens":518,
+                        "cost":null,
+                        "model":"gpt-3.5-turbo",
+                        "modelParameters":{
+                            "model":"gpt-3.5-turbo",
+                            "model_name":"gpt-3.5-turbo",
+                            "stream":false,
+                            "stop":null,
+                            "tools":[
+                                {
+                                    "type":"function",
+                                    "function":{
+                                        "name":"CVStructuredData",
+                                        "description":"",
+                                        "parameters":{
+                                            "properties":{
+                                                "name":{
+                                                    "description":"Candidate's full name",
+                                                    "type":"string"
+                                                },
+                                                "email":{
+                                                    "description":"Candidate's email address",
+                                                    "type":"string"
+                                                },
+                                                "github_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's GitHub profile. If not available, should be None."
+                                                },
+                                                "linkedin_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's LinkedIn profile. If not available, should be None."
+                                                }
+                                            },
+                                            "required":[
+                                                "name",
+                                                "email",
+                                                "github_profile_url",
+                                                "linkedin_profile_url"
+                                            ],
+                                            "type":"object"
+                                        }
+                                    }
+                                }
+                            ],
+                            "parallel_tool_calls":false,
+                            "tool_choice":{
+                                "type":"function",
+                                "function":{
+                                    "name":"CVStructuredData"
+                                }
+                            }
+                        },
+                        "rawOutput":null
+                    }
+                ],
+                "latency":1917.8881645203,
+                "startTime":1742830210.6261339188,
+                "endTime":1742830212.5440220833
+            }
+        ],
+        "latency":1917.8881645203,
+        "cost":0.0,
+        "tokens":0.0
+    },
+    {
+        "file_dir":".\/data\/cv_5.pdf",
+        "output":"{\"name\":\"Sarah Johnson\",\"email\":\"sarah.johnson@example.com\",\"github_profile_url\":null,\"linkedin_profile_url\":null}",
+        "steps":[
+            {
+                "name":"extract",
+                "id":"69a8138f-abba-44d0-8b29-4230afb88997",
+                "type":"user_call",
+                "inputs":{
+                    "file_dir":".\/data\/cv_5.pdf"
+                },
+                "output":"name='Sarah Johnson' email='sarah.johnson@example.com' github_profile_url=None linkedin_profile_url=None",
+                "groundTruth":null,
+                "metadata":{
+
+                },
+                "steps":[
+                    {
+                        "name":"read_cv",
+                        "id":"52a8ed64-d2b3-4320-9d85-1d812f2af082",
+                        "type":"user_call",
+                        "inputs":{
+                            "file_dir":".\/data\/cv_5.pdf"
+                        },
+                        "output":"Sarah Johnson\n987 Maple Street\nAustin, TX 73301\nsarah.johnson@example.com\n(512) 345-6789\nObjective\nDedicated marketing professional with 4 years of experience in digital\nmarketing and content creation. Looking to contribute my skills to a\ndynamic team.\nProfessional Experience\nDigital Marketing Specialist\nBright Ideas Co., Austin, TX\nApril 2020 \u2013 Present\n- Managed social media campaigns and increased brand awareness by 35%.\n- Developed and executed content strategies that improved organic search\nrankings. - Analyzed marketing data to measure campaign effectiveness and\nROI.\nContent Creator\nFreelance, Austin, TX\nJune 2016 \u2013 March 2020\n- Created blog posts, articles, and social media content for various clients. -\nManaged multiple content calendars and ensured timely delivery of content.\n- Built a personal brand with over 10,000 followers on social media.\nEducation\nBachelor of Arts in Communications\nUniversity of Texas, Austin, TX\nGraduated May 2016\nSkills\nSEO, SEM\nContent Management Systems (WordPress, Joomla)\nGoogle Analytics, AdWords\nSocial Media Marketing (Facebook, Instagram, Twitter)\u2022 \n\u2022 \n\u2022 \n\u2022 Interests\nTraveling, Cooking, Yoga\u2022",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":14.182806015,
+                        "startTime":1742830212.5448372364,
+                        "endTime":1742830212.5590200424
+                    },
+                    {
+                        "name":"OpenAI Chat Completion",
+                        "id":"bfb85950-e81a-4ab2-ac71-92ba17d6da3a",
+                        "type":"chat_completion",
+                        "inputs":{
+                            "prompt":[
+                                {
+                                    "role":"user",
+                                    "content":"Sarah Johnson\n987 Maple Street\nAustin, TX 73301\nsarah.johnson@example.com\n(512) 345-6789\nObjective\nDedicated marketing professional with 4 years of experience in digital\nmarketing and content creation. Looking to contribute my skills to a\ndynamic team.\nProfessional Experience\nDigital Marketing Specialist\nBright Ideas Co., Austin, TX\nApril 2020 \u2013 Present\n- Managed social media campaigns and increased brand awareness by 35%.\n- Developed and executed content strategies that improved organic search\nrankings. - Analyzed marketing data to measure campaign effectiveness and\nROI.\nContent Creator\nFreelance, Austin, TX\nJune 2016 \u2013 March 2020\n- Created blog posts, articles, and social media content for various clients. -\nManaged multiple content calendars and ensured timely delivery of content.\n- Built a personal brand with over 10,000 followers on social media.\nEducation\nBachelor of Arts in Communications\nUniversity of Texas, Austin, TX\nGraduated May 2016\nSkills\nSEO, SEM\nContent Management Systems (WordPress, Joomla)\nGoogle Analytics, AdWords\nSocial Media Marketing (Facebook, Instagram, Twitter)\u2022 \n\u2022 \n\u2022 \n\u2022 Interests\nTraveling, Cooking, Yoga\u2022"
+                                }
+                            ]
+                        },
+                        "output":"",
+                        "groundTruth":null,
+                        "metadata":{
+
+                        },
+                        "steps":[
+
+                        ],
+                        "latency":827.9569149017,
+                        "startTime":1742830212.5599958897,
+                        "endTime":1742830213.3879528046,
+                        "provider":"OpenAI",
+                        "promptTokens":377,
+                        "completionTokens":29,
+                        "tokens":406,
+                        "cost":null,
+                        "model":"gpt-3.5-turbo",
+                        "modelParameters":{
+                            "model":"gpt-3.5-turbo",
+                            "model_name":"gpt-3.5-turbo",
+                            "stream":false,
+                            "stop":null,
+                            "tools":[
+                                {
+                                    "type":"function",
+                                    "function":{
+                                        "name":"CVStructuredData",
+                                        "description":"",
+                                        "parameters":{
+                                            "properties":{
+                                                "name":{
+                                                    "description":"Candidate's full name",
+                                                    "type":"string"
+                                                },
+                                                "email":{
+                                                    "description":"Candidate's email address",
+                                                    "type":"string"
+                                                },
+                                                "github_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's GitHub profile. If not available, should be None."
+                                                },
+                                                "linkedin_profile_url":{
+                                                    "anyOf":[
+                                                        {
+                                                            "type":"string"
+                                                        },
+                                                        {
+                                                            "type":"null"
+                                                        }
+                                                    ],
+                                                    "description":"The URL of the candidate's LinkedIn profile. If not available, should be None."
+                                                }
+                                            },
+                                            "required":[
+                                                "name",
+                                                "email",
+                                                "github_profile_url",
+                                                "linkedin_profile_url"
+                                            ],
+                                            "type":"object"
+                                        }
+                                    }
+                                }
+                            ],
+                            "parallel_tool_calls":false,
+                            "tool_choice":{
+                                "type":"function",
+                                "function":{
+                                    "name":"CVStructuredData"
+                                }
+                            }
+                        },
+                        "rawOutput":null
+                    }
+                ],
+                "latency":844.0608978271,
+                "startTime":1742830212.5448040962,
+                "endTime":1742830213.388864994
+            }
+        ],
+        "latency":844.0608978271,
+        "cost":0.0,
+        "tokens":0.0
+    }
+]

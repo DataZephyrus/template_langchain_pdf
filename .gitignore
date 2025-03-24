@@ -117,3 +117,7 @@ dmypy.json
 .vscode/
 
 flask/
+
+
+# Openlayer
+.openlayer
